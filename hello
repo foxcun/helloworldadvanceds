@@ -1,0 +1,10 @@
+
+void
+playSoundEffect(int soundIndex, float volume)
+{
+    // Sound playback is always handled by the Android SDK
+    // Use the environment and class stored in initNativeCallback
+    // to call a Java method that plays a sound
+    jmethodID method = javaEnv->GetMethodID(javaClass, "playSound", "(IF)V");
+    javaEnv->CallVoidMethod(javaObj, method, soundIndex, volume);
+}
